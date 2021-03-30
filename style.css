@@ -1,12 +1,28 @@
 .game-board {
     border: 1px solid black;
     background-color: blue;
-    height: 490px;
+    height: 497px;
     width: 550px;
 }
 
 .slots {
     border: 1px solid black;
-    height: 76px;
-    width: 80px
+    height: 78px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: white
+}
+
+.red_chip {
+    background-color: red;
+    height: 78px;
+    width: 80px; 
+    border-radius: 50%;
+}
+
+.black_chip {
+    background-color: black;
+    height: 78px;
+    width: 80px;
+    border-radius: 50%
 }
