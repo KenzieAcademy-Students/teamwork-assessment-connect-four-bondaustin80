@@ -1,18 +1,40 @@
 // Your Code Here.
 
 let boardLayout = [
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-  [null, null, null, null, null, null],
-];
+    [null, null, null, null, null, null],
+    [null, null, null, null, null, null],
+    [null, null, null, null, null, null],
+    [null, null, null, null, null, null],
+    [null, null, null, null, null, null],
+    [null, null, null, null, null, null],
+    [null, null, null, null, null, null]
+]
 
-function checkHorizontal(board) {}
 
-function checkVertical(board) {}
+
+
+function checkHorizontal(board) {
+    for (let row = 0; row < board.length - 3; row++) {
+        let tempRow = board[row]
+        for (let space = 0; space < tempRow.length; space++) {
+            let piece = board[row][space]
+            if (piece === null) {
+                continue
+            } else {
+                if (piece === board[row + 1][space] && piece === board[row + 2][space] && piece === board[row + 3][space]) {
+                    return true
+                }
+            }
+       }
+    }
+    return false
+}
+
+console.log(checkHorizontal(boardLayout))
+
+function checkVertical(board) {
+    
+}
 
 function checkDiagonalUp(board) {}
 
