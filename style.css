@@ -1,8 +1,9 @@
 .game-board {
     border: 1px solid black;
     background-color: blue;
-    height: 510px;
-    width: 550px;
+    height: 480px;
+    width: 575px;
+    display: flex;
 }
 
 .slots {
