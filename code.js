@@ -30,15 +30,60 @@ function checkHorizontal(board) {
     return false
 }
 
-console.log(checkHorizontal(boardLayout))
+//console.log(checkHorizontal(boardLayout))
 
 function checkVertical(board) {
-    
+    for (let row = 0; row < board.length; row++) {
+        let tempRow = board[row]
+        for (let space = 0; space < tempRow.length - 3; space ++) {
+            let piece = board[row][space]
+            if (piece === null) {
+                continue
+            } else {
+                if (piece === board[row][space + 1] && piece === board[row][space + 2] && piece === board[row][space + 3]) {
+                    return true
+                }
+            }
+        }
+    }
+    return false
 }
 
-function checkDiagonalUp(board) {}
+//console.log(checkVertical(boardLayout))
 
-function checkDiagonalDown(board) {}
+function checkDiagonalUp(board) {
+    for (let row = 0; row < board.length - 3; row++) {
+        let tempRow = board[row]
+        for (let space = 0; space < tempRow.length - 3; space++) {
+            let piece = board[row][space]
+            if (piece === null) {
+                continue
+            } else if (piece === board[row + 1][space + 1] && piece === board[row + 2][space + 2] && piece === board[row + 3][space + 3]) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+//console.log(checkDiagonalUp(boardLayout))
+
+function checkDiagonalDown(board) {
+    for (let row = 0; row < board.length - 3; row++) {
+        let tempRow = board[row]
+        for (let space = 3; space < tempRow.length; space++) {
+            let piece = board[row][space]
+            if (piece === null) {
+                continue
+            } else if (piece === board[row + 1][space - 1] && piece === board[row + 2][space - 2] && piece === board[row + 3][space - 3]) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+//console.log(checkDiagonalDown(boardLayout))
 
 function analyzeBoard(board) {
   if (checkHorizontal(board)) {
