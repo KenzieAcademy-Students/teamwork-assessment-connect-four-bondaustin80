@@ -98,6 +98,8 @@ function analyzeBoard(board) {
   return false;
 }
 
+console.log(analyzeBoard(boardLayout))
+
 let firstColumn = document.getElementById("column1");
 let secondColumn = document.getElementById("column2");
 let thirdColumn = document.getElementById("column3");
