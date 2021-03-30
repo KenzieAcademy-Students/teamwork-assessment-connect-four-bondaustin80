@@ -4,7 +4,7 @@ let boardLayout = [
     [null, null, null, null, null, null],
     [null, null, null, null, null, null],
     [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
+    [null, null, "red", "red", "red", "red"],
     [null, null, null, null, null, null],
     [null, null, null, null, null, null],
     [null, null, null, null, null, null]
@@ -30,11 +30,26 @@ function checkHorizontal(board) {
     return false
 }
 
-console.log(checkHorizontal(boardLayout))
+//console.log(checkHorizontal(boardLayout))
 
 function checkVertical(board) {
-    
+    for (let row = 0; row < board.length; row++) {
+        let tempRow = board[row]
+        for (let space = 0; space < tempRow.length - 3; space ++) {
+            let piece = board[row][space]
+            if (piece === null) {
+                continue
+            } else {
+                if (piece === board[row][space + 1] && piece === board[row][space + 2] && piece === board[row][space + 3]) {
+                    return true
+                }
+            }
+        }
+    }
+    return false
 }
+
+console.log(checkVertical(boardLayout))
 
 function checkDiagonalUp(board) {}
 
