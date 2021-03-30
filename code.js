@@ -7,5 +7,6 @@ let boardLayout = [
     [null, null, null, null, null, null],
     [null, null, null, null, null, null],
     [null, null, null, null, null, null],
+    [null, null, null, null, null, null],
     [null, null, null, null, null, null]
 ]
