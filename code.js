@@ -30,7 +30,7 @@ function checkHorizontal(board) {
     return false
 }
 
-//console.log(checkHorizontal(boardLayout))
+// console.log(checkHorizontal(boardLayout))
 
 function checkVertical(board) {
     for (let row = 0; row < board.length; row++) {
