@@ -28,6 +28,8 @@ h1 {
     width: 80px; 
     border-radius: 50%;
     margin: auto;
+    color: white;
+    text-align: center; 
 }
 
 .black_chip {
@@ -36,6 +38,8 @@ h1 {
     width: 80px;
     border-radius: 50%;
     margin: auto;
+    color: white;
+    text-align: center;
 }
 
 .container {
