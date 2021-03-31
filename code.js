@@ -91,13 +91,13 @@ function checkIfTie(board) {
   for (let row = 0; row < board.length; row++) {
     let tempRow = board[row];
     for (let space = 0; space < tempRow.length; space++) {
-      let piece = board[row][space];
+      let piece = board[row][space]
       if (piece === null) {
-        return false;
+        return false
       }
     }
   }
-  return true;
+  return console.log("It's a Tie!")
 }
 
 function analyzeBoard(board) {
@@ -202,3 +202,4 @@ sixthColumn.addEventListener("click", function () {
 seventhColumn.addEventListener("click", function () {
   dropChip(7);
 });
+
