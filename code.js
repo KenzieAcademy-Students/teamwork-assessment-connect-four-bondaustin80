@@ -9,7 +9,7 @@ let boardLayout = [
   [null, null, null, null, null, null, null],
 ];
 
-function checkHorizontal(board) {
+function checkVertical(board) {
   for (let row = 0; row < board.length - 3; row++) {
     let tempRow = board[row];
     for (let space = 0; space < tempRow.length; space++) {
@@ -32,7 +32,7 @@ function checkHorizontal(board) {
 
 // console.log(checkHorizontal(boardLayout))
 
-function checkVertical(board) {
+function checkHorizontal(board) {
   for (let row = 0; row < board.length; row++) {
     let tempRow = board[row];
     for (let space = 0; space < tempRow.length - 3; space++) {
