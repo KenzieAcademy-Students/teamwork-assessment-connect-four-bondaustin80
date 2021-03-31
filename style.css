@@ -24,7 +24,7 @@ h1 {
   background-color: white;
 }
 
-.red_chip {
+.red-chip {
   background-color: red;
   height: 78px;
   width: 80px;
@@ -34,7 +34,7 @@ h1 {
   text-align: center;
 }
 
-.black_chip {
+.black-chip {
   background-color: black;
   height: 78px;
   width: 80px;
