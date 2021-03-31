@@ -4,6 +4,10 @@ h1 {
 
 }
 
+.result {
+    color:black
+}
+
 
 .game-board {
     border: 1px solid black;
