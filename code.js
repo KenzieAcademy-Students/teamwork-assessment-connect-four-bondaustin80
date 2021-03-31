@@ -95,6 +95,19 @@ function checkDiagonalDown(board) {
   return false;
 }
 
+function checkIfTie(board) {
+  for (let row = 0; row < board.length; row++) {
+    let tempRow = board[row];
+    for (let space = 0; space < tempRow.length; space++) {
+      let piece = board[row][space]
+      if (piece === null) {
+        return false
+      }
+    }
+  }
+  return true
+}
+
 //console.log(checkDiagonalDown(boardLayout))
 
 function analyzeBoard(board) {
