@@ -171,10 +171,8 @@ function dropChip(column) {
       currentColumn.childNodes[2 * targetRow + 1].className = "red_chip"
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
-        let result = document.createElement("h1")
-        result.className = "result"
+        let result = document.querySelector(".result")
         result.textContent = "Player 1 wins!"
-        document.body.append(result)
       } else {
         currentPlayer = 2;
       }
@@ -183,15 +181,11 @@ function dropChip(column) {
       currentColumn.childNodes[2 * targetRow + 1].className = "black_chip"
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
-        let result = document.createElement("h1")
-        result.className = "result"
+        let result = document.querySelector(".result")
         result.textContent = "Player 2 wins!"
-        document.body.append(result)
       } else if (checkIfTie(boardLayout)) {
-        let result = document.createElement("h1")
-        result.className = "result"
+        let result = document.querySelector(".result")
         result.textContent = "Its a tie!"
-        document.body.append(result)
       } else {
         currentPlayer = 1;
       }
