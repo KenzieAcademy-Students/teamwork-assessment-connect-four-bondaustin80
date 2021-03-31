@@ -1,86 +1,98 @@
 // Your Code Here.
 
 let boardLayout = [
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null],
-    [null, null, null, null, null, null]
-]
-
-
-
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+];
 
 function checkHorizontal(board) {
-    for (let row = 0; row < board.length - 3; row++) {
-        let tempRow = board[row]
-        for (let space = 0; space < tempRow.length; space++) {
-            let piece = board[row][space]
-            if (piece === null) {
-                continue
-            } else {
-                if (piece === board[row + 1][space] && piece === board[row + 2][space] && piece === board[row + 3][space]) {
-                    return true
-                }
-            }
-       }
+  for (let row = 0; row < board.length - 3; row++) {
+    let tempRow = board[row];
+    for (let space = 0; space < tempRow.length; space++) {
+      let piece = board[row][space];
+      if (piece === null) {
+        continue;
+      } else {
+        if (
+          piece === board[row + 1][space] &&
+          piece === board[row + 2][space] &&
+          piece === board[row + 3][space]
+        ) {
+          return true;
+        }
+      }
     }
-    return false
+  }
+  return false;
 }
 
 // console.log(checkHorizontal(boardLayout))
 
 function checkVertical(board) {
-    for (let row = 0; row < board.length; row++) {
-        let tempRow = board[row]
-        for (let space = 0; space < tempRow.length - 3; space ++) {
-            let piece = board[row][space]
-            if (piece === null) {
-                continue
-            } else {
-                if (piece === board[row][space + 1] && piece === board[row][space + 2] && piece === board[row][space + 3]) {
-                    return true
-                }
-            }
+  for (let row = 0; row < board.length; row++) {
+    let tempRow = board[row];
+    for (let space = 0; space < tempRow.length - 3; space++) {
+      let piece = board[row][space];
+      if (piece === null) {
+        continue;
+      } else {
+        if (
+          piece === board[row][space + 1] &&
+          piece === board[row][space + 2] &&
+          piece === board[row][space + 3]
+        ) {
+          return true;
         }
+      }
     }
-    return false
+  }
+  return false;
 }
 
 //console.log(checkVertical(boardLayout))
 
 function checkDiagonalUp(board) {
-    for (let row = 0; row < board.length - 3; row++) {
-        let tempRow = board[row]
-        for (let space = 0; space < tempRow.length - 3; space++) {
-            let piece = board[row][space]
-            if (piece === null) {
-                continue
-            } else if (piece === board[row + 1][space + 1] && piece === board[row + 2][space + 2] && piece === board[row + 3][space + 3]) {
-                return true
-            }
-        }
+  for (let row = 0; row < board.length - 3; row++) {
+    let tempRow = board[row];
+    for (let space = 0; space < tempRow.length - 3; space++) {
+      let piece = board[row][space];
+      if (piece === null) {
+        continue;
+      } else if (
+        piece === board[row + 1][space + 1] &&
+        piece === board[row + 2][space + 2] &&
+        piece === board[row + 3][space + 3]
+      ) {
+        return true;
+      }
     }
-    return false
+  }
+  return false;
 }
 
 //console.log(checkDiagonalUp(boardLayout))
 
 function checkDiagonalDown(board) {
-    for (let row = 0; row < board.length - 3; row++) {
-        let tempRow = board[row]
-        for (let space = 3; space < tempRow.length; space++) {
-            let piece = board[row][space]
-            if (piece === null) {
-                continue
-            } else if (piece === board[row + 1][space - 1] && piece === board[row + 2][space - 2] && piece === board[row + 3][space - 3]) {
-                return true
-            }
-        }
+  for (let row = 0; row < board.length - 3; row++) {
+    let tempRow = board[row];
+    for (let space = 3; space < tempRow.length; space++) {
+      let piece = board[row][space];
+      if (piece === null) {
+        continue;
+      } else if (
+        piece === board[row + 1][space - 1] &&
+        piece === board[row + 2][space - 2] &&
+        piece === board[row + 3][space - 3]
+      ) {
+        return true;
+      }
     }
-    return false
+  }
+  return false;
 }
 
 //console.log(checkDiagonalDown(boardLayout))
@@ -98,7 +110,7 @@ function analyzeBoard(board) {
   return false;
 }
 
-console.log(analyzeBoard(boardLayout))
+// console.log(analyzeBoard(boardLayout));
 
 let firstColumn = document.getElementById("column1");
 let secondColumn = document.getElementById("column2");
@@ -107,3 +119,48 @@ let fourthColumn = document.getElementById("column4");
 let fifthColumn = document.getElementById("column5");
 let sixthColumn = document.getElementById("column6");
 let seventhColumn = document.getElementById("column7");
+
+let currentPlayer = 1;
+
+function dropChip(column) {
+  let targetColumn = column - 1;
+  if (boardLayout[0][targetColumn] === null && !analyzeBoard(boardLayout)) {
+    let targetRow;
+    for (let i = 5; i >= 0; i--) {
+      if (boardLayout[i][targetColumn] === null) {
+        targetRow = i;
+        break;
+      }
+    }
+    console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
+    if (currentPlayer === 1) {
+      boardLayout[targetRow][targetColumn] = currentPlayer;
+      currentPlayer = 2;
+    } else if (currentPlayer === 2) {
+      boardLayout[targetRow][targetColumn] = currentPlayer;
+      currentPlayer = 1;
+    }
+  }
+}
+
+firstColumn.addEventListener("click", function () {
+  dropChip(1);
+});
+secondColumn.addEventListener("click", function () {
+  dropChip(2);
+});
+thirdColumn.addEventListener("click", function () {
+  dropChip(3);
+});
+fourthColumn.addEventListener("click", function () {
+  dropChip(4);
+});
+fifthColumn.addEventListener("click", function () {
+  dropChip(5);
+});
+sixthColumn.addEventListener("click", function () {
+  dropChip(6);
+});
+seventhColumn.addEventListener("click", function () {
+  dropChip(7);
+});
