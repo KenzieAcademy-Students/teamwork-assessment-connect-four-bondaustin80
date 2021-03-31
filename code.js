@@ -167,6 +167,7 @@ function dropChip(column) {
     console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
     let currentColumn = getColumnChild(column)
     if (currentPlayer === 1) {
+      document.querySelector(".current-player").textContent = "Current Player: Player 2"
       currentColumn.childNodes[2 * targetRow + 1].className = "red_chip"
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
@@ -177,6 +178,7 @@ function dropChip(column) {
         currentPlayer = 2;
       }
     } else if (currentPlayer === 2) {
+      document.querySelector(".current-player").textContent = "Current Player: Player 1"
       currentColumn.childNodes[2 * targetRow + 1].className = "black_chip"
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
