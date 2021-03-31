@@ -99,13 +99,13 @@ function checkIfTie(board) {
   for (let row = 0; row < board.length; row++) {
     let tempRow = board[row];
     for (let space = 0; space < tempRow.length; space++) {
-      let piece = board[row][space]
+      let piece = board[row][space];
       if (piece === null) {
-        return false
+        return false;
       }
     }
   }
-  return console.log("It's a Tie!")
+  return true;
 }
 
 //console.log(checkDiagonalDown(boardLayout))
@@ -148,13 +148,24 @@ function dropChip(column) {
     console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
     if (currentPlayer === 1) {
       boardLayout[targetRow][targetColumn] = currentPlayer;
-      console.log("player 1")
-      currentPlayer = 2;
+      if (analyzeBoard(boardLayout)) {
+        alert("Player One wins!");
+      } else if (checkIfTie(boardLayout)) {
+        alert("It's a tie!");
+      } else {
+        currentPlayer = 2;
+      }
     } else if (currentPlayer === 2) {
       boardLayout[targetRow][targetColumn] = currentPlayer;
-      console.log("player 2")
-      currentPlayer = 1;
+      if (analyzeBoard(boardLayout)) {
+        alert("Player Two wins!");
+      } else if (checkIfTie(boardLayout)) {
+        alert("It's a tie!");
+      } else {
+        currentPlayer = 1;
+      }
     }
+    console.log(boardLayout);
   }
 }
 
