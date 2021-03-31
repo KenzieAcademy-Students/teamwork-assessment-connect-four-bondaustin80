@@ -1,5 +1,3 @@
-// Your Code Here.
-
 let boardLayout = [
   [null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null],
@@ -30,8 +28,6 @@ function checkVertical(board) {
   return false;
 }
 
-// console.log(checkHorizontal(boardLayout))
-
 function checkHorizontal(board) {
   for (let row = 0; row < board.length; row++) {
     let tempRow = board[row];
@@ -53,8 +49,6 @@ function checkHorizontal(board) {
   return false;
 }
 
-//console.log(checkVertical(boardLayout))
-
 function checkDiagonalUp(board) {
   for (let row = 0; row < board.length - 3; row++) {
     let tempRow = board[row];
@@ -73,8 +67,6 @@ function checkDiagonalUp(board) {
   }
   return false;
 }
-
-//console.log(checkDiagonalUp(boardLayout))
 
 function checkDiagonalDown(board) {
   for (let row = 0; row < board.length - 3; row++) {
@@ -108,8 +100,6 @@ function checkIfTie(board) {
   return true;
 }
 
-//console.log(checkDiagonalDown(boardLayout))
-
 function analyzeBoard(board) {
   if (checkHorizontal(board)) {
     return true;
@@ -123,8 +113,6 @@ function analyzeBoard(board) {
   return false;
 }
 
-// console.log(analyzeBoard(boardLayout));
-
 let firstColumn = document.getElementById("column1");
 let secondColumn = document.getElementById("column2");
 let thirdColumn = document.getElementById("column3");
@@ -137,20 +125,19 @@ let currentPlayer = 1;
 
 function getColumnChild(column) {
   if (column === 1) {
-    return firstColumn
+    return firstColumn;
   } else if (column === 2) {
-    return secondColumn
-  }
-  else if (column === 3) {
-    return thirdColumn
+    return secondColumn;
+  } else if (column === 3) {
+    return thirdColumn;
   } else if (column === 4) {
-    return fourthColumn
+    return fourthColumn;
   } else if (column === 5) {
-    return fifthColumn
+    return fifthColumn;
   } else if (column === 6) {
-    return sixthColumn
+    return sixthColumn;
   } else if (column === 7) {
-    return seventhColumn
+    return seventhColumn;
   }
 }
 
@@ -165,32 +152,33 @@ function dropChip(column) {
       }
     }
     console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
-    let currentColumn = getColumnChild(column)
+    let currentColumn = getColumnChild(column);
     if (currentPlayer === 1) {
-      document.querySelector(".current-player").textContent = "Current Player: Player 2"
-      currentColumn.childNodes[2 * targetRow + 1].className = "red_chip"
+      document.querySelector(".current-player").textContent =
+        "Current Player: Player 2";
+      currentColumn.childNodes[2 * targetRow + 1].className = "red_chip";
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
-        let result = document.querySelector(".result")
-        result.textContent = "Player 1 wins!"
+        let result = document.querySelector(".result");
+        result.textContent = "Player 1 wins!";
       } else {
         currentPlayer = 2;
       }
     } else if (currentPlayer === 2) {
-      document.querySelector(".current-player").textContent = "Current Player: Player 1"
-      currentColumn.childNodes[2 * targetRow + 1].className = "black_chip"
+      document.querySelector(".current-player").textContent =
+        "Current Player: Player 1";
+      currentColumn.childNodes[2 * targetRow + 1].className = "black_chip";
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
-        let result = document.querySelector(".result")
-        result.textContent = "Player 2 wins!"
+        let result = document.querySelector(".result");
+        result.textContent = "Player 2 wins!";
       } else if (checkIfTie(boardLayout)) {
-        let result = document.querySelector(".result")
-        result.textContent = "Its a tie!"
+        let result = document.querySelector(".result");
+        result.textContent = "Its a tie!";
       } else {
         currentPlayer = 1;
       }
     }
-    console.log(boardLayout);
   }
 }
 
