@@ -135,6 +135,25 @@ let seventhColumn = document.getElementById("column7");
 
 let currentPlayer = 1;
 
+function getColumnChild(column) {
+  if (column === 1) {
+    return firstColumn
+  } else if (column === 2) {
+    return secondColumn
+  }
+  else if (column === 3) {
+    return thirdColumn
+  } else if (column === 4) {
+    return fourthColumn
+  } else if (column === 5) {
+    return fifthColumn
+  } else if (column === 6) {
+    return sixthColumn
+  } else if (column === 7) {
+    return seventhColumn
+  }
+}
+
 function dropChip(column) {
   let targetColumn = column - 1;
   if (boardLayout[0][targetColumn] === null && !analyzeBoard(boardLayout)) {
@@ -146,7 +165,9 @@ function dropChip(column) {
       }
     }
     console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
+    let currentColumn = getColumnChild(column)
     if (currentPlayer === 1) {
+      currentColumn.childNodes[2 * targetRow + 1].className = "red_chip"
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
         alert("Player One wins!");
@@ -156,6 +177,7 @@ function dropChip(column) {
         currentPlayer = 2;
       }
     } else if (currentPlayer === 2) {
+      currentColumn.childNodes[2 * targetRow + 1].className = "black_chip"
       boardLayout[targetRow][targetColumn] = currentPlayer;
       if (analyzeBoard(boardLayout)) {
         alert("Player Two wins!");
