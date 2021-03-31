@@ -1,3 +1,11 @@
+let firstColumn = document.getElementById("column1");
+let secondColumn = document.getElementById("column2");
+let thirdColumn = document.getElementById("column3");
+let fourthColumn = document.getElementById("column4");
+let fifthColumn = document.getElementById("column5");
+let sixthColumn = document.getElementById("column6");
+let seventhColumn = document.getElementById("column7");
+
 let boardLayout = [
   [null, null, null, null, null, null, null],
   [null, null, null, null, null, null, null],
@@ -91,13 +99,12 @@ function checkIfTie(board) {
   for (let row = 0; row < board.length; row++) {
     let tempRow = board[row];
     for (let space = 0; space < tempRow.length; space++) {
-      let piece = board[row][space]
+      let piece = board[row][space];
       if (piece === null) {
-        return false
+        return false;
       }
     }
   }
-  return console.log("It's a Tie!")
 }
 
 function analyzeBoard(board) {
@@ -112,16 +119,6 @@ function analyzeBoard(board) {
   }
   return false;
 }
-
-let firstColumn = document.getElementById("column1");
-let secondColumn = document.getElementById("column2");
-let thirdColumn = document.getElementById("column3");
-let fourthColumn = document.getElementById("column4");
-let fifthColumn = document.getElementById("column5");
-let sixthColumn = document.getElementById("column6");
-let seventhColumn = document.getElementById("column7");
-
-let currentPlayer = 1;
 
 function getColumnChild(column) {
   if (column === 1) {
@@ -140,6 +137,8 @@ function getColumnChild(column) {
     return seventhColumn;
   }
 }
+
+let currentPlayer = 1;
 
 function dropChip(column) {
   let targetColumn = column - 1;
@@ -202,4 +201,3 @@ sixthColumn.addEventListener("click", function () {
 seventhColumn.addEventListener("click", function () {
   dropChip(7);
 });
-
