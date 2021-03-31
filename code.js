@@ -105,7 +105,7 @@ function checkIfTie(board) {
       }
     }
   }
-  return true
+  return console.log("It's a Tie!")
 }
 
 //console.log(checkDiagonalDown(boardLayout))
@@ -148,9 +148,11 @@ function dropChip(column) {
     console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
     if (currentPlayer === 1) {
       boardLayout[targetRow][targetColumn] = currentPlayer;
+      console.log("player 1")
       currentPlayer = 2;
     } else if (currentPlayer === 2) {
       boardLayout[targetRow][targetColumn] = currentPlayer;
+      console.log("player 2")
       currentPlayer = 1;
     }
   }
