@@ -151,7 +151,6 @@ function dropChip(column) {
         break;
       }
     }
-    console.log(`boardLayout[${targetRow}, ${targetColumn}]`);
     let currentColumn = getColumnChild(column);
     if (currentPlayer === 1) {
       document.querySelector(".current-player").textContent =
