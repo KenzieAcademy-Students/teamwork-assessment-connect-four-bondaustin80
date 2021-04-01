@@ -105,6 +105,7 @@ function checkIfTie(board) {
       }
     }
   }
+  return true;
 }
 
 function analyzeBoard(board) {
